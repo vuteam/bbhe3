@@ -76,9 +76,6 @@ def skin_user_skinname():
 # example: loadSkin("nemesis_greenline/skin.xml")
 config.skin = ConfigSubsection()
 DEFAULT_SKIN = "skin.xml"
-if not fileExists(resolveFilename(SCOPE_SKIN, DEFAULT_SKIN)):
-        # in that case, fallback to Magic (which is an SD skin)
-        DEFAULT_SKIN = "Magic/skin.xml"
 config.skin.primary_skin = ConfigText(default=DEFAULT_SKIN)
 config.skin.xres = ConfigInteger(default=0)
 
@@ -255,7 +252,7 @@ def collectAttributes(skinAttributes, node, context, skin_path_prefix=None, igno
 def morphRcImagePath(value):
 	if value == '/usr/share/enigma2/skin_default/rc.png' or value == '/usr/share/enigma2/skin_default/rcold.png':
 			value = rc_model.getRcLocation() + 'rc.png'
-		elif value == '/usr/share/enigma2/skin_default/rc0.png' or value == '/usr/share/enigma2/skin_default/rc1.png' or value == '/usr/share/enigma2/skin_default/rc2.png':
+	elif value == '/usr/share/enigma2/skin_default/rc0.png' or value == '/usr/share/enigma2/skin_default/rc1.png' or value == '/usr/share/enigma2/skin_default/rc2.png':
 			value = rc_model.getRcLocation() + 'rc.png'
         return value
 
